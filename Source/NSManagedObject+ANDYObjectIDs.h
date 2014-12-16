@@ -1,13 +1,14 @@
-//
-//  NSManagedObject+ANDYObjectIDs.h
-//  Demo
-//
-//  Created by Elvis Nuñez on 12/17/14.
-//  Copyright (c) 2014 ANDY. All rights reserved.
-//
-
-#import <CoreData/CoreData.h>
+@import CoreData;
 
 @interface NSManagedObject (ANDYObjectIDs)
+
++ (NSDictionary *)andy_dictionaryOfIDsAndFetchedIDsInContext:(NSManagedObjectContext *)context
+                                               usingLocalKey:(NSString *)localKey
+                                               forEntityName:(NSString *)entityName;
+
++ (NSDictionary *)andy_dictionaryOfIDsAndFetchedIDsUsingPredicate:(NSPredicate *)predicate
+                                                      andLocalKey:(NSString *)localKey
+                                                        inContext:(NSManagedObjectContext *)context
+                                                    forEntityName:(NSString *)entityName;
 
 @end

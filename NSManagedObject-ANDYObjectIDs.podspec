@@ -1,13 +1,7 @@
 Pod::Spec.new do |s|
 s.name             = "NSManagedObject-ANDYObjectIDs"
 s.version          = "0.1"
-s.summary          = "A short description of NSManagedObject-ANDYObjectIDs."
-s.description      = <<-DESC
-An optional longer description of NSManagedObject-ANDYObjectIDs
-
-* Markdown format.
-* Don't worry about the indent, we strip it!
-DESC
+s.summary          = "The fastest way to get a group of objectIDs and localIDs"
 s.homepage         = "https://github.com/NSElvis/NSManagedObject-ANDYObjectIDs"
 s.license          = 'MIT'
 s.author           = { "Elvis Nuñez" => "hello@nselvis.com" }

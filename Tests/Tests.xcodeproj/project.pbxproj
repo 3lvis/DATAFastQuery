@@ -7,20 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14495F0A1A40F9120007EC6C /* NSManagedObject+ANDYObjectIDs.m in Sources */ = {isa = PBXBuildFile; fileRef = 14495F091A40F9120007EC6C /* NSManagedObject+ANDYObjectIDs.m */; };
+		14495F101A40FB390007EC6C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 14495F0F1A40FB390007EC6C /* User.m */; };
+		14495F121A40FB530007EC6C /* Tests.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 14495F111A40FB530007EC6C /* Tests.xcdatamodel */; };
 		14B564731A06D87B00342CDA /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14B564721A06D87B00342CDA /* .travis.yml */; };
 		14C4182E1A01919C00636FD6 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C4182D1A01919C00636FD6 /* Tests.m */; };
 		14C4183D1A019A1500636FD6 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 14C418391A019A1500636FD6 /* LICENSE.md */; };
-		14C4183E1A019A1500636FD6 /* PODNAME.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 14C4183A1A019A1500636FD6 /* PODNAME.podspec */; };
+		14C4183E1A019A1500636FD6 /* NSManagedObject-ANDYObjectIDs.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 14C4183A1A019A1500636FD6 /* NSManagedObject-ANDYObjectIDs.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14495F081A40F9120007EC6C /* NSManagedObject+ANDYObjectIDs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+ANDYObjectIDs.h"; sourceTree = "<group>"; };
+		14495F091A40F9120007EC6C /* NSManagedObject+ANDYObjectIDs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+ANDYObjectIDs.m"; sourceTree = "<group>"; };
+		14495F0E1A40FB390007EC6C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		14495F0F1A40FB390007EC6C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		14495F111A40FB530007EC6C /* Tests.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tests.xcdatamodel; sourceTree = "<group>"; };
 		14B564721A06D87B00342CDA /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		14C418261A01919C00636FD6 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C4182C1A01919C00636FD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14C4182D1A01919C00636FD6 /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		14C418381A019A1500636FD6 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
 		14C418391A019A1500636FD6 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
-		14C4183A1A019A1500636FD6 /* PODNAME.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; name = PODNAME.podspec; path = ../PODNAME.podspec; sourceTree = "<group>"; };
+		14C4183A1A019A1500636FD6 /* NSManagedObject-ANDYObjectIDs.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; name = "NSManagedObject-ANDYObjectIDs.podspec"; path = "../NSManagedObject-ANDYObjectIDs.podspec"; sourceTree = "<group>"; };
 		14C4183B1A019A1500636FD6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +64,9 @@
 		14C4182A1A01919C00636FD6 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				14495F111A40FB530007EC6C /* Tests.xcdatamodel */,
+				14495F0E1A40FB390007EC6C /* User.h */,
+				14495F0F1A40FB390007EC6C /* User.m */,
 				14C4182D1A01919C00636FD6 /* Tests.m */,
 				14C4182B1A01919C00636FD6 /* Supporting Files */,
 			);
@@ -73,6 +84,8 @@
 		14C418371A01974300636FD6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				14495F081A40F9120007EC6C /* NSManagedObject+ANDYObjectIDs.h */,
+				14495F091A40F9120007EC6C /* NSManagedObject+ANDYObjectIDs.m */,
 			);
 			name = Source;
 			path = ../Source;
@@ -84,7 +97,7 @@
 				14B564721A06D87B00342CDA /* .travis.yml */,
 				14C418381A019A1500636FD6 /* CONTRIBUTING.md */,
 				14C418391A019A1500636FD6 /* LICENSE.md */,
-				14C4183A1A019A1500636FD6 /* PODNAME.podspec */,
+				14C4183A1A019A1500636FD6 /* NSManagedObject-ANDYObjectIDs.podspec */,
 				14C4183B1A019A1500636FD6 /* README.md */,
 			);
 			name = Metadata;
@@ -148,7 +161,7 @@
 			files = (
 				14B564731A06D87B00342CDA /* .travis.yml in Resources */,
 				14C4183D1A019A1500636FD6 /* LICENSE.md in Resources */,
-				14C4183E1A019A1500636FD6 /* PODNAME.podspec in Resources */,
+				14C4183E1A019A1500636FD6 /* NSManagedObject-ANDYObjectIDs.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +172,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14495F121A40FB530007EC6C /* Tests.xcdatamodel in Sources */,
+				14495F101A40FB390007EC6C /* User.m in Sources */,
 				14C4182E1A01919C00636FD6 /* Tests.m in Sources */,
+				14495F0A1A40F9120007EC6C /* NSManagedObject+ANDYObjectIDs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
