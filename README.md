@@ -8,10 +8,12 @@
 ## Usage
 
 ```objc
-+ (NSDictionary *)andy_dictionaryOfIDsAndFetchedIDsInContext:(NSManagedObjectContext *)context
-                                               usingLocalKey:(NSString *)localKey
-                                               forEntityName:(NSString *)entityName;
+NSDictionary *dictionary = [NSManagedObject andy_dictionaryOfIDsAndFetchedIDsInContext:self.managedObjectContext
+                                                                         usingLocalKey:@"userID"
+                                                                         forEntityName:@"User"];
 ```
+
+This will be a dictionary that has as keys your primary key, such as the `userID`, and as value the `NSManagedObjectID`.
 
 ## Installation
 
