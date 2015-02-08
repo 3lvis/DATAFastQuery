@@ -2,7 +2,7 @@
 
 @implementation User
 
-@dynamic userID;
+@dynamic remoteID;
 @dynamic name;
 
 @end

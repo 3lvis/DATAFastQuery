@@ -3,7 +3,7 @@
 
 @interface User : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * userID;
+@property (nonatomic, retain) NSNumber * remoteID;
 @property (nonatomic, retain) NSString * name;
 
 @end

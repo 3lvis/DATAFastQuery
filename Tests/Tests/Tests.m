@@ -44,12 +44,12 @@
 {
     User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
                                                inManagedObjectContext:self.managedObjectContext];
-    user.userID = @1;
+    user.remoteID = @1;
     user.name = @"Joshua Ivanof";
     [self.managedObjectContext save:nil];
 
     NSDictionary *dictionary = [NSManagedObject andy_dictionaryOfIDsAndFetchedIDsInContext:self.managedObjectContext
-                                                                             usingLocalKey:@"userID"
+                                                                             usingLocalKey:@"remoteID"
                                                                              forEntityName:@"User"];
 
     XCTAssertNotNil(dictionary);
@@ -58,7 +58,7 @@
 
     NSManagedObjectID *objectID = dictionary[@1];
     User *retreivedUser = (User *)[self.managedObjectContext objectWithID:objectID];
-    XCTAssertEqualObjects(retreivedUser.userID, @1);
+    XCTAssertEqualObjects(retreivedUser.remoteID, @1);
 }
 
 @end
