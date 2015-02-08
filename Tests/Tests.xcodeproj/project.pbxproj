@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		143CCC851A87ACCE008D1320 /* Tests.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 143CCC831A87ACCE008D1320 /* Tests.xcdatamodeld */; };
 		14495F0A1A40F9120007EC6C /* NSManagedObject+ANDYObjectIDs.m in Sources */ = {isa = PBXBuildFile; fileRef = 14495F091A40F9120007EC6C /* NSManagedObject+ANDYObjectIDs.m */; };
 		14495F101A40FB390007EC6C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 14495F0F1A40FB390007EC6C /* User.m */; };
-		14495F121A40FB530007EC6C /* Tests.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 14495F111A40FB530007EC6C /* Tests.xcdatamodel */; };
 		14B564731A06D87B00342CDA /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14B564721A06D87B00342CDA /* .travis.yml */; };
 		14C4182E1A01919C00636FD6 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C4182D1A01919C00636FD6 /* Tests.m */; };
 		14C4183D1A019A1500636FD6 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 14C418391A019A1500636FD6 /* LICENSE.md */; };
@@ -17,11 +17,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		143CCC841A87ACCE008D1320 /* Tests.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tests.xcdatamodel; sourceTree = "<group>"; };
 		14495F081A40F9120007EC6C /* NSManagedObject+ANDYObjectIDs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+ANDYObjectIDs.h"; sourceTree = "<group>"; };
 		14495F091A40F9120007EC6C /* NSManagedObject+ANDYObjectIDs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+ANDYObjectIDs.m"; sourceTree = "<group>"; };
 		14495F0E1A40FB390007EC6C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		14495F0F1A40FB390007EC6C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		14495F111A40FB530007EC6C /* Tests.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tests.xcdatamodel; sourceTree = "<group>"; };
 		14B564721A06D87B00342CDA /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		14C418261A01919C00636FD6 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C4182C1A01919C00636FD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		14C4182A1A01919C00636FD6 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				14495F111A40FB530007EC6C /* Tests.xcdatamodel */,
+				143CCC831A87ACCE008D1320 /* Tests.xcdatamodeld */,
 				14495F0E1A40FB390007EC6C /* User.h */,
 				14495F0F1A40FB390007EC6C /* User.m */,
 				14C4182D1A01919C00636FD6 /* Tests.m */,
@@ -172,8 +172,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14495F121A40FB530007EC6C /* Tests.xcdatamodel in Sources */,
 				14495F101A40FB390007EC6C /* User.m in Sources */,
+				143CCC851A87ACCE008D1320 /* Tests.xcdatamodeld in Sources */,
 				14C4182E1A01919C00636FD6 /* Tests.m in Sources */,
 				14495F0A1A40F9120007EC6C /* NSManagedObject+ANDYObjectIDs.m in Sources */,
 			);
@@ -318,6 +318,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		143CCC831A87ACCE008D1320 /* Tests.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				143CCC841A87ACCE008D1320 /* Tests.xcdatamodel */,
+			);
+			currentVersion = 143CCC841A87ACCE008D1320 /* Tests.xcdatamodel */;
+			path = Tests.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 14C418121A01919C00636FD6 /* Project object */;
 }
