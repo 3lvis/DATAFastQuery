@@ -4,61 +4,41 @@
 
 #import "User.h"
 
-@interface Tests : XCTestCase
+#import "DATAStack.h"
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@interface Tests : XCTestCase
 
 @end
 
 @implementation Tests
 
-#pragma mark - Set up
-
-- (NSManagedObjectContext *)managedObjectContext
+- (void)testSampleTest
 {
-    if (_managedObjectContext) return _managedObjectContext;
+    DATAStack *stack = [[DATAStack alloc] initWithModelName:@"Model"
+                                                     bundle:[NSBundle bundleForClass:[self class]]
+                                                  storeType:DATAStackInMemoryStoreType];
+    XCTAssertNotNil(stack);
 
-    NSURL *modelURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"Tests" withExtension:@"momd"];
-    NSManagedObjectModel *model = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-    [psc addPersistentStoreWithType:NSInMemoryStoreType
-                      configuration:nil
-                                URL:nil
-                            options:nil
-                              error:nil];
+    NSManagedObjectContext *context = [stack mainThreadContext];
 
-    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    _managedObjectContext.persistentStoreCoordinator = psc;
-
-    return _managedObjectContext;
-}
-
-- (void)tearDown
-{
-    [self.managedObjectContext rollback];
-
-    [super tearDown];
-}
-
-- (void)testDictionary
-{
     User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
-                                               inManagedObjectContext:self.managedObjectContext];
-    user.userID = @1;
+                                               inManagedObjectContext:context];
+    user.remoteID = @1;
     user.name = @"Joshua Ivanof";
-    [self.managedObjectContext save:nil];
 
-    NSDictionary *dictionary = [NSManagedObject andy_dictionaryOfIDsAndFetchedIDsInContext:self.managedObjectContext
-                                                                             usingLocalKey:@"userID"
-                                                                             forEntityName:@"User"];
+    NSError *saveError = nil;
+    if (![context save:&saveError]) {
+        NSLog(@"Error: %@", saveError);
+        abort();
+    }
 
-    XCTAssertNotNil(dictionary);
-    XCTAssertTrue(dictionary.count == 1);
-    XCTAssertEqualObjects(dictionary[@1], user.objectID);
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"User"];
 
-    NSManagedObjectID *objectID = dictionary[@1];
-    User *retreivedUser = (User *)[self.managedObjectContext objectWithID:objectID];
-    XCTAssertEqualObjects(retreivedUser.userID, @1);
+    NSError *fetchError = nil;
+    NSArray *users = [context executeFetchRequest:request error:&fetchError];
+    if (fetchError) NSLog(@"error fetching IDs: %@", [fetchError description]);
+
+    XCTAssertEqual(users.count, 1);
 }
 
 @end

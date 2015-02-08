@@ -1,8 +1,17 @@
+//
+//  User.m
+//  Tests
+//
+//  Created by Elvis Nuñez on 2/7/15.
+//  Copyright (c) 2015 ANDY. All rights reserved.
+//
+
 #import "User.h"
+
 
 @implementation User
 
-@dynamic userID;
 @dynamic name;
+@dynamic remoteID;
 
 @end

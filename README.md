@@ -9,11 +9,11 @@
 
 ```objc
 NSDictionary *dictionary = [NSManagedObject andy_dictionaryOfIDsAndFetchedIDsInContext:self.managedObjectContext
-                                                                         usingLocalKey:@"userID"
+                                                                         usingLocalKey:@"remoteID"
                                                                          forEntityName:@"User"];
 ```
 
-This will be a dictionary that has as keys your primary key, such as the `userID`, and as value the `NSManagedObjectID`.
+This will be a dictionary that has as keys your primary key, such as the `remoteID`, and as value the `NSManagedObjectID`.
 
 ## Installation
 

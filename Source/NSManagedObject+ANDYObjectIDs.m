@@ -20,7 +20,6 @@
     __block NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
 
     [context performBlockAndWait:^{
-
         NSExpressionDescription *expression = [[NSExpressionDescription alloc] init];
         expression.name = @"objectID";
         expression.expression = [NSExpression expressionForEvaluatedObject];
