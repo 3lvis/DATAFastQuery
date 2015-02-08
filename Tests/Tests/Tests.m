@@ -4,61 +4,50 @@
 
 #import "User.h"
 
-@interface Tests : XCTestCase
+#import "DATAStack.h"
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@interface Tests : XCTestCase
 
 @end
 
 @implementation Tests
 
-#pragma mark - Set up
-
-- (NSManagedObjectContext *)managedObjectContext
-{
-    if (_managedObjectContext) return _managedObjectContext;
-
-    NSURL *modelURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"Tests" withExtension:@"momd"];
-    NSManagedObjectModel *model = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-    [psc addPersistentStoreWithType:NSInMemoryStoreType
-                      configuration:nil
-                                URL:nil
-                            options:nil
-                              error:nil];
-
-    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    _managedObjectContext.persistentStoreCoordinator = psc;
-
-    return _managedObjectContext;
-}
-
-- (void)tearDown
-{
-    [self.managedObjectContext rollback];
-
-    [super tearDown];
-}
-
 - (void)testDictionary
 {
-    User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
-                                               inManagedObjectContext:self.managedObjectContext];
-    user.remoteID = @1;
-    user.name = @"Joshua Ivanof";
-    [self.managedObjectContext save:nil];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Saving expectations"];
 
-    NSDictionary *dictionary = [NSManagedObject andy_dictionaryOfIDsAndFetchedIDsInContext:self.managedObjectContext
-                                                                             usingLocalKey:@"remoteID"
-                                                                             forEntityName:@"User"];
+    DATAStack *stack = [[DATAStack alloc] initWithModelName:@"Tests"
+                                                     bundle:[NSBundle bundleForClass:[self class]]
+                                                  storeType:DATAStackInMemoryStoreType];
 
-    XCTAssertNotNil(dictionary);
-    XCTAssertTrue(dictionary.count == 1);
-    XCTAssertEqualObjects(dictionary[@1], user.objectID);
+    [stack performInNewBackgroundThreadContext:^(NSManagedObjectContext *context) {
+        User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                                   inManagedObjectContext:context];
+        user.remoteID = @1;
+        user.name = @"Joshua Ivanof";
 
-    NSManagedObjectID *objectID = dictionary[@1];
-    User *retreivedUser = (User *)[self.managedObjectContext objectWithID:objectID];
-    XCTAssertEqualObjects(retreivedUser.remoteID, @1);
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"error saving: %@", error);
+            abort();
+        }
+
+        NSDictionary *dictionary = [NSManagedObject andy_dictionaryOfIDsAndFetchedIDsInContext:context
+                                                                                 usingLocalKey:@"remoteID"
+                                                                                 forEntityName:@"User"];
+
+        XCTAssertNotNil(dictionary);
+        XCTAssertTrue(dictionary.count == 1);
+        XCTAssertEqualObjects(dictionary[@1], user.objectID);
+
+        NSManagedObjectID *objectID = dictionary[@1];
+        User *retreivedUser = (User *)[context objectWithID:objectID];
+        XCTAssertEqualObjects(retreivedUser.remoteID, @1);
+
+        [expectation fulfill];
+    }];
+
+    [self waitForExpectationsWithTimeout:5.0f handler:nil];
 }
 
 @end
