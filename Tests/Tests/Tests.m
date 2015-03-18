@@ -12,19 +12,21 @@
 
 @implementation Tests
 
-- (void)testDictionary
+- (void)configureUserWithRemoteID:(NSNumber *)remoteID
+                          localID:(NSString *)localID
+                             name:(NSString *)name
+                            block:(void (^)(User *user, NSManagedObjectContext *context))block
 {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Saving expectations"];
-
     DATAStack *stack = [[DATAStack alloc] initWithModelName:@"Tests"
                                                      bundle:[NSBundle bundleForClass:[self class]]
                                                   storeType:DATAStackInMemoryStoreType];
 
-    [stack performInNewBackgroundThreadContext:^(NSManagedObjectContext *context) {
+    [stack performInNewBackgroundContext:^(NSManagedObjectContext *context) {
         User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
                                                    inManagedObjectContext:context];
-        user.remoteID = @1;
-        user.name = @"Joshua Ivanof";
+        user.remoteID = remoteID;
+        user.localID = localID;
+        user.name = name;
 
         NSError *error = nil;
         if (![context save:&error]) {
@@ -32,10 +34,19 @@
             abort();
         }
 
+        if (block) {
+            block (user, context);
+        }
+    }];
+
+}
+
+- (void)testDictionary
+{
+    [self configureUserWithRemoteID:@1 localID:nil name:@"Joshua" block:^(User *user, NSManagedObjectContext *context) {
         NSDictionary *dictionary = [NSManagedObject andy_dictionaryOfIDsAndFetchedIDsInContext:context
                                                                                  usingLocalKey:@"remoteID"
                                                                                  forEntityName:@"User"];
-
         XCTAssertNotNil(dictionary);
         XCTAssertTrue(dictionary.count == 1);
         XCTAssertEqualObjects(dictionary[@1], user.objectID);
@@ -43,11 +54,26 @@
         NSManagedObjectID *objectID = dictionary[@1];
         User *retreivedUser = (User *)[context objectWithID:objectID];
         XCTAssertEqualObjects(retreivedUser.remoteID, @1);
-
-        [expectation fulfill];
+        XCTAssertEqualObjects(retreivedUser.name, @"Joshua");
     }];
+}
 
-    [self waitForExpectationsWithTimeout:5.0f handler:nil];
+- (void)testDictionaryStringLocalKey
+{
+    [self configureUserWithRemoteID:nil localID:@"100" name:@"Joshua" block:^(User *user, NSManagedObjectContext *context) {
+        NSDictionary *dictionary = [NSManagedObject andy_dictionaryOfIDsAndFetchedIDsInContext:context
+                                                                                 usingLocalKey:@"localID"
+                                                                                 forEntityName:@"User"];
+
+        XCTAssertNotNil(dictionary);
+        XCTAssertTrue(dictionary.count == 1);
+        XCTAssertEqualObjects(dictionary[@"100"], user.objectID);
+
+        NSManagedObjectID *objectID = dictionary[@"100"];
+        User *retreivedUser = (User *)[context objectWithID:objectID];
+        XCTAssertEqualObjects(retreivedUser.localID, @"100");
+        XCTAssertEqualObjects(retreivedUser.name, @"Joshua");
+    }];
 }
 
 @end
