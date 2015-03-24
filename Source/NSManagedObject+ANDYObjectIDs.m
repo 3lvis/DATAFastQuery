@@ -65,6 +65,7 @@
 
     [context performBlockAndWait:^{
         NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entityName];
+        request.predicate = predicate;
         request.resultType = NSManagedObjectIDResultType;
 
         NSError *error = nil;
