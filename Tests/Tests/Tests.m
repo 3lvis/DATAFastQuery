@@ -13,8 +13,9 @@
 @implementation Tests
 
 - (User *)insertUserrWithRemoteID:(NSNumber *)remoteID
-                        localID:(NSString *)localID
-                           name:(NSString *)name inContext:(NSManagedObjectContext *)context
+                          localID:(NSString *)localID
+                             name:(NSString *)name
+                        inContext:(NSManagedObjectContext *)context
 {
     User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
                                                inManagedObjectContext:context];
@@ -98,7 +99,7 @@
 {
     DATAStack *stack = [[DATAStack alloc] initWithModelName:@"Tests" bundle:[NSBundle bundleForClass:[self class]]
                                                   storeType:DATAStackInMemoryStoreType];
-    
+
     [self insertUserrWithRemoteID:@1 localID:nil name:@"Joshua" inContext:stack.mainContext];
     User *jon = [self insertUserrWithRemoteID:@2 localID:nil name:@"Jon" inContext:stack.mainContext];
 
