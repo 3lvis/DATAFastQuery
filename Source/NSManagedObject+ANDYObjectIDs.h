@@ -11,4 +11,11 @@
                                                         inContext:(NSManagedObjectContext *)context
                                                     forEntityName:(NSString *)entityName;
 
++ (NSArray *)andy_objectIDsInContext:(NSManagedObjectContext *)context
+                       forEntityName:(NSString *)entityName;
+
++ (NSArray *)andy_objectIDsUsingPredicate:(NSPredicate *)predicate
+                                  inContext:(NSManagedObjectContext *)context
+                              forEntityName:(NSString *)entityName;
+
 @end

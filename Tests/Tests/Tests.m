@@ -76,4 +76,28 @@
     }];
 }
 
+- (void)testObjectIDsArray
+{
+    [self configureUserWithRemoteID:@1 localID:nil name:@"Joshua" block:^(User *user, NSManagedObjectContext *context) {
+        NSArray *objectIDs = [NSManagedObject andy_objectIDsInContext:context forEntityName:@"User"];
+        XCTAssertNotNil(objectIDs);
+        XCTAssertEqual(objectIDs.count, 1);
+        XCTAssertEqualObjects(objectIDs.firstObject, user.objectID);
+    }];
+}
+
+- (void)testObjectIDsArrayWithPredicate
+{
+    [self configureUserWithRemoteID:@1 localID:nil name:@"Jon" block:nil];
+    [self configureUserWithRemoteID:@2 localID:nil name:@"Joshua" block:^(User *user, NSManagedObjectContext *context) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == Jon"];
+        NSArray *objectIDs = [NSManagedObject andy_objectIDsUsingPredicate:predicate inContext:context forEntityName:@"User"];
+
+        XCTAssertNotNil(objectIDs);
+        XCTAssertEqual(objectIDs.count, 1);
+        XCTAssertEqualObjects(objectIDs.firstObject, user.objectID);
+    }];
+}
+
+
 @end
