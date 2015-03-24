@@ -12,7 +12,7 @@
 
 @implementation Tests
 
-- (User *)insertUserrWithRemoteID:(NSNumber *)remoteID
+- (User *)insertUserWithRemoteID:(NSNumber *)remoteID
                           localID:(NSString *)localID
                              name:(NSString *)name
                         inContext:(NSManagedObjectContext *)context
@@ -35,7 +35,7 @@
                                                   storeType:DATAStackInMemoryStoreType];
 
     [stack performInNewBackgroundContext:^(NSManagedObjectContext *context) {
-        User *user = [self insertUserrWithRemoteID:remoteID localID:localID name:name inContext:context];
+        User *user = [self insertUserWithRemoteID:remoteID localID:localID name:name inContext:context];
 
         NSError *error = nil;
         if (![context save:&error]) {
@@ -100,8 +100,8 @@
     DATAStack *stack = [[DATAStack alloc] initWithModelName:@"Tests" bundle:[NSBundle bundleForClass:[self class]]
                                                   storeType:DATAStackInMemoryStoreType];
 
-    [self insertUserrWithRemoteID:@1 localID:nil name:@"Joshua" inContext:stack.mainContext];
-    User *jon = [self insertUserrWithRemoteID:@2 localID:nil name:@"Jon" inContext:stack.mainContext];
+    [self insertUserWithRemoteID:@1 localID:nil name:@"Joshua" inContext:stack.mainContext];
+    User *jon = [self insertUserWithRemoteID:@2 localID:nil name:@"Jon" inContext:stack.mainContext];
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == 'Jon'"];
     NSArray *objectIDs = [NSManagedObject andy_objectIDsUsingPredicate:predicate inContext:stack.mainContext forEntityName:@"User"];
