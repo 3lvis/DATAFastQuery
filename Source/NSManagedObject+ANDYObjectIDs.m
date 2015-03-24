@@ -61,21 +61,18 @@
                                   inContext:(NSManagedObjectContext *)context
                               forEntityName:(NSString *)entityName
 {
-    __block NSArray *ids;
+    __block NSArray *objectIDs;
 
     [context performBlockAndWait:^{
         NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entityName];
         request.resultType = NSManagedObjectIDResultType;
 
         NSError *error = nil;
-        ids = [context executeFetchRequest:request error:&error];
+        objectIDs = [context executeFetchRequest:request error:&error];
         if (error) NSLog(@"error fetching IDs: %@", [error description]);
     }];
 
-    return ids;
+    return objectIDs;
 }
-
-
-
 
 @end
