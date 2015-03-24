@@ -51,4 +51,28 @@
     return dictionary;
 }
 
++ (NSArray *)andy_objectIDsInContext:(NSManagedObjectContext *)context
+                 forEntityName:(NSString *)entityName
+{
+    return [self andy_objectIDsUsingPredicate:nil inContext:context forEntityName:entityName];
+}
+
++ (NSArray *)andy_objectIDsUsingPredicate:(NSPredicate *)predicate
+                                  inContext:(NSManagedObjectContext *)context
+                              forEntityName:(NSString *)entityName
+{
+    __block NSArray *objectIDs;
+
+    [context performBlockAndWait:^{
+        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entityName];
+        request.resultType = NSManagedObjectIDResultType;
+
+        NSError *error = nil;
+        objectIDs = [context executeFetchRequest:request error:&error];
+        if (error) NSLog(@"error fetching IDs: %@", [error description]);
+    }];
+
+    return objectIDs;
+}
+
 @end
