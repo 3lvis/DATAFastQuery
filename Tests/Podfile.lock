@@ -1,5 +1,5 @@
 PODS:
-  - DATAStack (3.0.0):
+  - DATAStack (3.0.2):
     - NSObject-HYPTesting (~> 1.2)
   - NSObject-HYPTesting (1.2)
 
@@ -7,7 +7,7 @@ DEPENDENCIES:
   - DATAStack
 
 SPEC CHECKSUMS:
-  DATAStack: 6e3a1100630f1180ab0b61f649622a879a93c085
+  DATAStack: daa0fe4ca1c2f41fc8f44c7ddca13a6b9d49b5b2
   NSObject-HYPTesting: f54d8bf73f75e2f2f4e49f4baa985df6fa699c2a
 
 COCOAPODS: 0.36.0
