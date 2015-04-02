@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
-s.name             = "NSManagedObject-ANDYObjectIDs"
+s.name             = "DATAObjectIDs"
 s.version          = "0.4"
 s.summary          = "The fastest way to get a group of objectIDs and primary keys from Core Data"
-s.homepage         = "https://github.com/NSElvis/NSManagedObject-ANDYObjectIDs"
+s.homepage         = "https://github.com/NSElvis/DATAObjectIDs"
 s.license          = 'MIT'
 s.author           = { "Elvis Nuñez" => "hello@nselvis.com" }
-s.source           = { git: "https://github.com/NSElvis/NSManagedObject-ANDYObjectIDs.git", tag: s.version.to_s }
+s.source           = { git: "https://github.com/NSElvis/DATAObjectIDs.git", tag: s.version.to_s }
 s.social_media_url = 'https://twitter.com/NSElvis'
 
 s.platform         = :ios, '7.0'

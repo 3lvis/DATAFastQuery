@@ -1,6 +1,6 @@
 @import XCTest;
 
-#import "NSManagedObject+ANDYObjectIDs.h"
+#import "DATAObjectIDs.h"
 
 #import "User.h"
 
@@ -13,9 +13,9 @@
 @implementation Tests
 
 - (User *)insertUserWithRemoteID:(NSNumber *)remoteID
-                          localID:(NSString *)localID
-                             name:(NSString *)name
-                        inContext:(NSManagedObjectContext *)context
+                         localID:(NSString *)localID
+                            name:(NSString *)name
+                       inContext:(NSManagedObjectContext *)context
 {
     User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
                                                inManagedObjectContext:context];
@@ -53,9 +53,9 @@
 - (void)testDictionary
 {
     [self configureUserWithRemoteID:@1 localID:nil name:@"Joshua" block:^(User *user, NSManagedObjectContext *context) {
-        NSDictionary *dictionary = [NSManagedObject andy_dictionaryOfIDsAndFetchedIDsInContext:context
-                                                                                 usingLocalKey:@"remoteID"
-                                                                                 forEntityName:@"User"];
+        NSDictionary *dictionary = [DATAObjectIDs objectIDsInEntityNamed:@"User"
+                                                     withAttributesNamed:@"remoteID"
+                                                                 context:context];
         XCTAssertNotNil(dictionary);
         XCTAssertTrue(dictionary.count == 1);
         XCTAssertEqualObjects(dictionary[@1], user.objectID);
@@ -70,10 +70,9 @@
 - (void)testDictionaryStringLocalKey
 {
     [self configureUserWithRemoteID:nil localID:@"100" name:@"Joshua" block:^(User *user, NSManagedObjectContext *context) {
-        NSDictionary *dictionary = [NSManagedObject andy_dictionaryOfIDsAndFetchedIDsInContext:context
-                                                                                 usingLocalKey:@"localID"
-                                                                                 forEntityName:@"User"];
-
+        NSDictionary *dictionary = [DATAObjectIDs objectIDsInEntityNamed:@"User"
+                                                     withAttributesNamed:@"localID"
+                                                                 context:context];
         XCTAssertNotNil(dictionary);
         XCTAssertTrue(dictionary.count == 1);
         XCTAssertEqualObjects(dictionary[@"100"], user.objectID);
@@ -88,7 +87,8 @@
 - (void)testObjectIDsArray
 {
     [self configureUserWithRemoteID:@1 localID:nil name:@"Joshua" block:^(User *user, NSManagedObjectContext *context) {
-        NSArray *objectIDs = [NSManagedObject andy_objectIDsInContext:context forEntityName:@"User"];
+        NSArray *objectIDs = [DATAObjectIDs objectIDsInEntityNamed:@"User"
+                                                           context:context];
         XCTAssertNotNil(objectIDs);
         XCTAssertEqual(objectIDs.count, 1);
         XCTAssertEqualObjects(objectIDs.firstObject, user.objectID);
@@ -104,8 +104,9 @@
     User *jon = [self insertUserWithRemoteID:@2 localID:nil name:@"Jon" inContext:stack.mainContext];
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == 'Jon'"];
-    NSArray *objectIDs = [NSManagedObject andy_objectIDsUsingPredicate:predicate inContext:stack.mainContext forEntityName:@"User"];
-
+    NSArray *objectIDs = [DATAObjectIDs objectIDsInEntityNamed:@"User"
+                                                       context:stack.mainContext
+                                                     predicate:predicate];
     XCTAssertNotNil(objectIDs);
     XCTAssertEqual(objectIDs.count, 1);
     XCTAssertEqualObjects(objectIDs.firstObject, jon.objectID);
