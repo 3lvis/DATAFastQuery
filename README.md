@@ -26,7 +26,7 @@ pod 'DATAObjectIDs'
 
 ## Author
 
-Elvis Nuñez, hello@3lvis.com
+Elvis Nuñez, [elvisnunez@me.com](mailto:elvisnunez@me.com)
 
 ## License
 
