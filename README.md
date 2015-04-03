@@ -9,8 +9,8 @@
 
 ```objc
 NSDictionary *dictionary = [DATAObjectIDs objectIDsInEntityNamed:@"User"
-                                       withAttributesNamed:@"remoteID"
-                                                   context:context];
+                                             withAttributesNamed:@"remoteID"
+                                                         context:context];
 ```
 
 This will be a dictionary that has as keys your primary key, such as the `remoteID`, and as value the `NSManagedObjectID`.
