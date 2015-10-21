@@ -4,7 +4,7 @@
 
 #import "User.h"
 
-#import "DATAStack.h"
+@import DATAStack;
 
 @interface Tests : XCTestCase
 
@@ -32,7 +32,7 @@
 {
     DATAStack *stack = [[DATAStack alloc] initWithModelName:@"Tests"
                                                      bundle:[NSBundle bundleForClass:[self class]]
-                                                  storeType:DATAStackInMemoryStoreType];
+                                                  storeType:DATAStackStoreTypeInMemory];
 
     [stack performInNewBackgroundContext:^(NSManagedObjectContext *context) {
         User *user = [self insertUserWithRemoteID:remoteID localID:localID name:name inContext:context];
@@ -98,7 +98,7 @@
 - (void)testObjectIDsArrayWithPredicate
 {
     DATAStack *stack = [[DATAStack alloc] initWithModelName:@"Tests" bundle:[NSBundle bundleForClass:[self class]]
-                                                  storeType:DATAStackInMemoryStoreType];
+                                                  storeType:DATAStackStoreTypeInMemory];
 
     [self insertUserWithRemoteID:@1 localID:nil name:@"Joshua" inContext:stack.mainContext];
     User *jon = [self insertUserWithRemoteID:@2 localID:nil name:@"Jon" inContext:stack.mainContext];
