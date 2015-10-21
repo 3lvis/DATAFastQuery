@@ -1,6 +1,5 @@
 # DATAObjectIDs
 
-[![CI Status](http://img.shields.io/travis/3lvis/DATAObjectIDs.svg?style=flat)](https://travis-ci.org/3lvis/DATAObjectIDs)
 [![Version](https://img.shields.io/cocoapods/v/DATAObjectIDs.svg?style=flat)](http://cocoadocs.org/docsets/DATAObjectIDs)
 [![License](https://img.shields.io/cocoapods/l/DATAObjectIDs.svg?style=flat)](http://cocoadocs.org/docsets/DATAObjectIDs)
 [![Platform](https://img.shields.io/cocoapods/p/DATAObjectIDs.svg?style=flat)](http://cocoadocs.org/docsets/DATAObjectIDs)
