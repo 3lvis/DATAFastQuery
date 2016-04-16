@@ -1,9 +1,7 @@
 @import XCTest;
 
 #import "DATAObjectIDs.h"
-
 #import "User.h"
-
 @import DATAStack;
 
 @interface Tests : XCTestCase

@@ -1,4 +1,3 @@
 use_frameworks!
 
-pod 'DATAObjectIDs', path: "."
-pod 'DATAStack'
+pod "DATAStack"

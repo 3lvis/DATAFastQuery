@@ -1,0 +1,10 @@
+PODS:
+  - DATAStack (4.2.3)
+
+DEPENDENCIES:
+  - DATAStack
+
+SPEC CHECKSUMS:
+  DATAStack: c48060416ef9a3df9f9fac70b8c5f6c19dac196e
+
+COCOAPODS: 0.39.0
