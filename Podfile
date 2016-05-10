@@ -1,3 +1,5 @@
 use_frameworks!
 
-pod "DATAStack"
+target 'Tests' do
+  pod "DATAStack"
+end
