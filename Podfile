@@ -1,4 +1,5 @@
 use_frameworks!
 
-pod 'DATAObjectIDs', path: "."
-pod 'DATAStack'
+target 'Tests' do
+  pod "DATAStack"
+end
