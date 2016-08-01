@@ -15,8 +15,7 @@
 - (User *)insertUserWithRemoteID:(NSNumber *)remoteID
                          localID:(NSString *)localID
                             name:(NSString *)name
-                       inContext:(NSManagedObjectContext *)context
-{
+                       inContext:(NSManagedObjectContext *)context {
     User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
                                                inManagedObjectContext:context];
     user.remoteID = remoteID;
@@ -28,8 +27,7 @@
 - (void)configureUserWithRemoteID:(NSNumber *)remoteID
                           localID:(NSString *)localID
                              name:(NSString *)name
-                            block:(void (^)(User *user, NSManagedObjectContext *context))block
-{
+                            block:(void (^)(User *user, NSManagedObjectContext *context))block {
     DATAStack *stack = [[DATAStack alloc] initWithModelName:@"Tests"
                                                      bundle:[NSBundle bundleForClass:[self class]]
                                                   storeType:DATAStackStoreTypeInMemory];
@@ -50,8 +48,7 @@
 
 }
 
-- (void)testDictionary
-{
+- (void)testDictionary {
     [self configureUserWithRemoteID:@1 localID:nil name:@"Joshua" block:^(User *user, NSManagedObjectContext *context) {
         NSDictionary *dictionary = [DATAObjectIDs objectIDsInEntityNamed:@"User"
                                                      withAttributesNamed:@"remoteID"
@@ -67,8 +64,7 @@
     }];
 }
 
-- (void)testDictionaryStringLocalKey
-{
+- (void)testDictionaryStringLocalKey {
     [self configureUserWithRemoteID:nil localID:@"100" name:@"Joshua" block:^(User *user, NSManagedObjectContext *context) {
         NSDictionary *dictionary = [DATAObjectIDs objectIDsInEntityNamed:@"User"
                                                      withAttributesNamed:@"localID"
@@ -84,8 +80,31 @@
     }];
 }
 
-- (void)testObjectIDsArray
-{
+- (void)testDictionaryStringLocalKeyUsingSortDescriptor {
+    DATAStack *stack = [[DATAStack alloc] initWithModelName:@"Tests" bundle:[NSBundle bundleForClass:[self class]]
+                                                  storeType:DATAStackStoreTypeInMemory];
+    [stack performInNewBackgroundContext:^(NSManagedObjectContext *context) {
+        [self insertUserWithRemoteID:nil localID:@"100" name:@"Joshua" inContext:context];
+        [self insertUserWithRemoteID:nil localID:@"200" name:@"Jon" inContext:context];
+        [context save:nil];
+
+        NSArray *attributesA = [DATAObjectIDs attributesInEntityNamed:@"User"
+                                                        attributeName:@"localID"
+                                                              context:context
+                                                            predicate:nil
+                                                      sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"localID" ascending:YES]]];
+        XCTAssertEqualObjects(attributesA.firstObject, @"100");
+
+        NSArray *attributesB = [DATAObjectIDs attributesInEntityNamed:@"User"
+                                                        attributeName:@"localID"
+                                                              context:context
+                                                            predicate:nil
+                                                      sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"localID" ascending:NO]]];
+        XCTAssertEqualObjects(attributesB.firstObject, @"200");
+    }];
+}
+
+- (void)testObjectIDsArray {
     [self configureUserWithRemoteID:@1 localID:nil name:@"Joshua" block:^(User *user, NSManagedObjectContext *context) {
         NSArray *objectIDs = [DATAObjectIDs objectIDsInEntityNamed:@"User"
                                                            context:context];
@@ -95,8 +114,7 @@
     }];
 }
 
-- (void)testObjectIDsArrayWithPredicate
-{
+- (void)testObjectIDsArrayWithPredicate {
     DATAStack *stack = [[DATAStack alloc] initWithModelName:@"Tests" bundle:[NSBundle bundleForClass:[self class]]
                                                   storeType:DATAStackStoreTypeInMemory];
 
