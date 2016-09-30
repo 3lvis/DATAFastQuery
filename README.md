@@ -25,7 +25,7 @@ pod 'DATAObjectIDs'
 
 ## Author
 
-Elvis Nuñez, [elvisnunez@me.com](mailto:elvisnunez@me.com)
+SyncDB, syncdb.contact@gmail.com
 
 ## License
 
