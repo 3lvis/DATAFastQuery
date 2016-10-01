@@ -85,10 +85,50 @@ public class DATAObjectIDs: NSObject {
     }
 
     class func generateObjectIDs(inEntityNamed entityName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> [Any] {
-        return [Any]()
+        var objectIDs = [NSManagedObjectID]()
+
+        context.performAndWait {
+            let request = NSFetchRequest<NSManagedObjectID>(entityName: entityName)
+            request.predicate = predicate;
+            request.resultType = .managedObjectIDResultType
+
+            do {
+                objectIDs = try context.fetch(request)
+            } catch let error as NSError {
+                print("error: \(error)")
+            }
+        }
+
+        return objectIDs
     }
 
     class func generateAttributes(inEntityNamed entityName: String, attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> [Any] {
-        return [Any]()
+        var attributes = [Any]()
+
+        context.performAndWait {
+            let expression = NSExpressionDescription()
+            expression.name = "objectID"
+            expression.expression = NSExpression.expressionForEvaluatedObject()
+            expression.expressionResultType = .objectIDAttributeType
+
+            let request = NSFetchRequest<NSDictionary>(entityName: entityName)
+            request.predicate = predicate
+            request.resultType = .dictionaryResultType
+            request.propertiesToFetch = [expression, attributeName]
+            request.sortDescriptors = sortDescriptors
+
+            do {
+                let objects = try context.fetch(request)
+                for object in objects {
+                    if let fetchedID = object[attributeName] {
+                        attributes.append(fetchedID)
+                    }
+                }
+            } catch let error as NSError {
+                print("error: \(error)")
+            }
+        }
+
+        return attributes
     }
 }
