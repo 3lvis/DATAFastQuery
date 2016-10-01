@@ -11,7 +11,6 @@
 		144BB4381D9FB76300073FC2 /* DATAStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144BB4361D9FB6F800073FC2 /* DATAStack.framework */; };
 		14A139B41AEFC72B00AD732F /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A139B31AEFC72B00AD732F /* Tests.swift */; };
 		14C47E0E1CD2AE5F004A48DF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14C47E0D1CD2AE5F004A48DF /* Info.plist */; };
-		14CC93131D9FB374008DCD88 /* DATAObjectIDs.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC93111D9FB374008DCD88 /* DATAObjectIDs.m */; };
 		14CC93141D9FB374008DCD88 /* DATAObjectIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC93121D9FB374008DCD88 /* DATAObjectIDs.swift */; };
 		14CC931A1D9FB380008DCD88 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC93151D9FB380008DCD88 /* Tests.m */; };
 		14CC931B1D9FB380008DCD88 /* Tests.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14CC93161D9FB380008DCD88 /* Tests.xcdatamodeld */; };
@@ -42,8 +41,6 @@
 		14C0AF821BD6D4230009ECBE /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		14C0AF831BD6D4230009ECBE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		14C47E0D1CD2AE5F004A48DF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14CC93101D9FB374008DCD88 /* DATAObjectIDs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATAObjectIDs.h; sourceTree = "<group>"; };
-		14CC93111D9FB374008DCD88 /* DATAObjectIDs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATAObjectIDs.m; sourceTree = "<group>"; };
 		14CC93121D9FB374008DCD88 /* DATAObjectIDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DATAObjectIDs.swift; sourceTree = "<group>"; };
 		14CC93151D9FB380008DCD88 /* Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		14CC93171D9FB380008DCD88 /* Tests.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tests.xcdatamodel; sourceTree = "<group>"; };
@@ -133,8 +130,6 @@
 		14C31A8C1CD294C70056A33F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				14CC93101D9FB374008DCD88 /* DATAObjectIDs.h */,
-				14CC93111D9FB374008DCD88 /* DATAObjectIDs.m */,
 				14CC93121D9FB374008DCD88 /* DATAObjectIDs.swift */,
 			);
 			path = Sources;
@@ -218,7 +213,6 @@
 				14CC931C1D9FB380008DCD88 /* User.m in Sources */,
 				14CC931A1D9FB380008DCD88 /* Tests.m in Sources */,
 				14CC93141D9FB374008DCD88 /* DATAObjectIDs.swift in Sources */,
-				14CC93131D9FB374008DCD88 /* DATAObjectIDs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

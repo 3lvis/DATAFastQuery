@@ -1,6 +1,6 @@
 @import XCTest;
 
-#import "DATAObjectIDs.h"
+#import "Tests-Swift.h"
 #import "User.h"
 @import DATAStack;
 
@@ -89,14 +89,12 @@
         NSArray *attributesA = [DATAObjectIDs attributesInEntityNamed:@"User"
                                                         attributeName:@"localID"
                                                               context:context
-                                                            predicate:nil
                                                       sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"localID" ascending:YES]]];
         XCTAssertEqualObjects(attributesA.firstObject, @"100");
 
         NSArray *attributesB = [DATAObjectIDs attributesInEntityNamed:@"User"
                                                         attributeName:@"localID"
                                                               context:context
-                                                            predicate:nil
                                                       sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"localID" ascending:NO]]];
         XCTAssertEqualObjects(attributesB.firstObject, @"200");
     }];
