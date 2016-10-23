@@ -6,6 +6,8 @@
 
 ## Usage
 
+Dictionary of any attribute as key and NSManagedObjectID as values.
+
 ```swift
 public class func objectIDs(inEntityNamed entityName: String, withAttributesNamed attributeName: String, context: NSManagedObjectContext) -> [AnyHashable : NSManagedObjectID]
 
@@ -16,6 +18,7 @@ public class func objectIDs(inEntityNamed entityName: String, withAttributesName
 public class func objectIDs(inEntityNamed entityName: String, withAttributesNamed attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> [AnyHashable : NSManagedObjectID]
 ```
 
+Array of NSManagedObjectIDs.
 ```swift
 public class func objectIDs(inEntityNamed entityName: String, context: NSManagedObjectContext) -> [NSManagedObjectID]
 
@@ -26,6 +29,7 @@ public class func objectIDs(inEntityNamed entityName: String, context: NSManaged
 public class func objectIDs(inEntityNamed entityName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> [NSManagedObjectID]
 ```
 
+Array of any attributes.
 ```swift
 public class func attributes(inEntityNamed entityName: String, attributeName: String, context: NSManagedObjectContext) -> [Any]
 
