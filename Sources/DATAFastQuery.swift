@@ -9,7 +9,7 @@ public class DATAFastQuery: NSObject {
         return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: predicate, sortDescriptor: nil)
     }
 
-    public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, sortDescriptors: NSSortDescriptor) -> [AnyHashable: NSManagedObjectID] {
+    public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, sortDescriptor: NSSortDescriptor) -> [AnyHashable: NSManagedObjectID] {
         return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: nil, sortDescriptor: nil)
     }
 
