@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/cocoapods/l/DATAObjectIDs.svg?style=flat)](http://cocoadocs.org/docsets/DATAObjectIDs)
 [![Platform](https://img.shields.io/cocoapods/p/DATAObjectIDs.svg?style=flat)](http://cocoadocs.org/docsets/DATAObjectIDs)
 
+Simple and lightweight library to query Core Data if a blazing fast way.
+
 ## Usage
 
 Dictionary of any attribute as key and NSManagedObjectID as values.
