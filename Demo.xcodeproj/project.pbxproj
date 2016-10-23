@@ -9,12 +9,10 @@
 /* Begin PBXBuildFile section */
 		144BB4371D9FB6F800073FC2 /* DATAStack.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 144BB4361D9FB6F800073FC2 /* DATAStack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		144BB4381D9FB76300073FC2 /* DATAStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144BB4361D9FB6F800073FC2 /* DATAStack.framework */; };
-		14A139B41AEFC72B00AD732F /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A139B31AEFC72B00AD732F /* Tests.swift */; };
+		14A139B41AEFC72B00AD732F /* DATAObjectIDsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A139B31AEFC72B00AD732F /* DATAObjectIDsTests.swift */; };
 		14C47E0E1CD2AE5F004A48DF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14C47E0D1CD2AE5F004A48DF /* Info.plist */; };
 		14CC93141D9FB374008DCD88 /* DATAObjectIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CC93121D9FB374008DCD88 /* DATAObjectIDs.swift */; };
-		14CC931A1D9FB380008DCD88 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC93151D9FB380008DCD88 /* Tests.m */; };
 		14CC931B1D9FB380008DCD88 /* Tests.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14CC93161D9FB380008DCD88 /* Tests.xcdatamodeld */; };
-		14CC931C1D9FB380008DCD88 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC93191D9FB380008DCD88 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,7 +32,7 @@
 		144BB4361D9FB6F800073FC2 /* DATAStack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DATAStack.framework; path = Carthage/Build/iOS/DATAStack.framework; sourceTree = "<group>"; };
 		146D72AC1AB782920058798C /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		146D72B11AB782920058798C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14A139B31AEFC72B00AD732F /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		14A139B31AEFC72B00AD732F /* DATAObjectIDsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DATAObjectIDsTests.swift; sourceTree = "<group>"; };
 		14C0AF7F1BD6D4230009ECBE /* .slather.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .slather.yml; sourceTree = "<group>"; };
 		14C0AF801BD6D4230009ECBE /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		14C0AF811BD6D4230009ECBE /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
@@ -42,10 +40,7 @@
 		14C0AF831BD6D4230009ECBE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		14C47E0D1CD2AE5F004A48DF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14CC93121D9FB374008DCD88 /* DATAObjectIDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DATAObjectIDs.swift; sourceTree = "<group>"; };
-		14CC93151D9FB380008DCD88 /* Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		14CC93171D9FB380008DCD88 /* Tests.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tests.xcdatamodel; sourceTree = "<group>"; };
-		14CC93181D9FB380008DCD88 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		14CC93191D9FB380008DCD88 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		14F393951CC6512400616696 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		14F393961CC6517E00616696 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,11 +89,8 @@
 		146D72AF1AB782920058798C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				14A139B31AEFC72B00AD732F /* Tests.swift */,
-				14CC93151D9FB380008DCD88 /* Tests.m */,
+				14A139B31AEFC72B00AD732F /* DATAObjectIDsTests.swift */,
 				14CC93161D9FB380008DCD88 /* Tests.xcdatamodeld */,
-				14CC93181D9FB380008DCD88 /* User.h */,
-				14CC93191D9FB380008DCD88 /* User.m */,
 				146D72B01AB782920058798C /* Supporting Files */,
 			);
 			path = Tests;
@@ -209,9 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14CC931B1D9FB380008DCD88 /* Tests.xcdatamodeld in Sources */,
-				14A139B41AEFC72B00AD732F /* Tests.swift in Sources */,
-				14CC931C1D9FB380008DCD88 /* User.m in Sources */,
-				14CC931A1D9FB380008DCD88 /* Tests.m in Sources */,
+				14A139B41AEFC72B00AD732F /* DATAObjectIDsTests.swift in Sources */,
 				14CC93141D9FB374008DCD88 /* DATAObjectIDs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
