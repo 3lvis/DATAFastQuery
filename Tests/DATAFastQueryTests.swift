@@ -75,10 +75,10 @@ class DATAFastQueryTests: XCTestCase {
             let _ = self.insertUserWithRemoteID(remoteID: nil, localID: "200", name: "Jon", context: context)
             try! context.save()
 
-            let attributesA = DATAFastQuery.attributes(in: "User", named: "localID", context: context, sortDescriptors: [NSSortDescriptor(key: "localID", ascending: true)])
+            let attributesA = DATAFastQuery.attributes(in: "User", named: "localID", context: context, sortDescriptor: NSSortDescriptor(key: "localID", ascending: true))
             XCTAssertEqual(attributesA.first as? String, "100")
 
-            let attributesB = DATAFastQuery.attributes(in: "User", named: "localID", context: context, sortDescriptors: [NSSortDescriptor(key: "localID", ascending: false)])
+            let attributesB = DATAFastQuery.attributes(in: "User", named: "localID", context: context, sortDescriptor: NSSortDescriptor(key: "localID", ascending: false))
             XCTAssertEqual(attributesB.first as? String, "200")
         }
     }

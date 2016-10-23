@@ -2,54 +2,54 @@ import CoreData
 
 public class DATAFastQuery: NSObject {
     public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext) -> [AnyHashable: NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: nil, sortDescriptors: nil)
+        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: nil, sortDescriptor: nil)
     }
 
     public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?) -> [AnyHashable: NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: predicate, sortDescriptors: nil)
+        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: predicate, sortDescriptor: nil)
     }
 
-    public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, sortDescriptors: [NSSortDescriptor]) -> [AnyHashable: NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: nil, sortDescriptors: nil)
+    public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, sortDescriptors: NSSortDescriptor) -> [AnyHashable: NSManagedObjectID] {
+        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: nil, sortDescriptor: nil)
     }
 
-    public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> [AnyHashable: NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: predicate, sortDescriptors: sortDescriptors)
+    public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptor: NSSortDescriptor) -> [AnyHashable: NSManagedObjectID] {
+        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: predicate, sortDescriptor: sortDescriptor)
     }
 
     public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext) -> [NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: nil, sortDescriptors: nil)
+        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: nil, sortDescriptor: nil)
     }
 
     public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate) -> [NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: predicate, sortDescriptors: nil)
+        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: predicate, sortDescriptor: nil)
     }
 
-    public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, sortDescriptors: [NSSortDescriptor]) -> [NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: nil, sortDescriptors: sortDescriptors)
+    public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, sortDescriptor: NSSortDescriptor) -> [NSManagedObjectID] {
+        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: nil, sortDescriptor: sortDescriptor)
     }
 
-    public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> [NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: predicate, sortDescriptors: sortDescriptors)
+    public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptor: NSSortDescriptor) -> [NSManagedObjectID] {
+        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: predicate, sortDescriptor: sortDescriptor)
     }
 
     public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext) -> [Any] {
-        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: nil, sortDescriptors: nil)
+        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: nil, sortDescriptor: nil)
     }
 
     public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate) -> [Any] {
-        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: predicate, sortDescriptors: nil)
+        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: predicate, sortDescriptor: nil)
     }
 
-    public class func attributes(in entityName: String,named attributeName: String, context: NSManagedObjectContext, sortDescriptors: [NSSortDescriptor]) -> [Any] {
-        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: nil, sortDescriptors: sortDescriptors)
+    public class func attributes(in entityName: String,named attributeName: String, context: NSManagedObjectContext, sortDescriptor: NSSortDescriptor) -> [Any] {
+        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: nil, sortDescriptor: sortDescriptor)
     }
 
-    public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> [Any] {
-        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: predicate, sortDescriptors: sortDescriptors)
+    public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptor: NSSortDescriptor) -> [Any] {
+        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: predicate, sortDescriptor: sortDescriptor)
     }
 
-    class func generateManagedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> [AnyHashable: NSManagedObjectID] {
+    class func generateManagedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptor: NSSortDescriptor?) -> [AnyHashable: NSManagedObjectID] {
         var result = [AnyHashable: NSManagedObjectID]()
 
         context.performAndWait {
@@ -62,7 +62,9 @@ public class DATAFastQuery: NSObject {
             request.predicate = predicate
             request.resultType = .dictionaryResultType
             request.propertiesToFetch = [expression, attributeName]
-            request.sortDescriptors = sortDescriptors
+            if let sortDescriptor = sortDescriptor  {
+                request.sortDescriptors = [sortDescriptor]
+            }
 
             do {
                 let objects = try context.fetch(request)
@@ -84,7 +86,7 @@ public class DATAFastQuery: NSObject {
         return result
     }
 
-    class func generateManagedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> [NSManagedObjectID] {
+    class func generateManagedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptor: NSSortDescriptor?) -> [NSManagedObjectID] {
         var objectIDs = [NSManagedObjectID]()
 
         context.performAndWait {
@@ -102,7 +104,7 @@ public class DATAFastQuery: NSObject {
         return objectIDs
     }
 
-    class func generateAttributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> [Any] {
+    class func generateAttributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptor: NSSortDescriptor?) -> [Any] {
         var attributes = [Any]()
 
         context.performAndWait {
@@ -115,7 +117,9 @@ public class DATAFastQuery: NSObject {
             request.predicate = predicate
             request.resultType = .dictionaryResultType
             request.propertiesToFetch = [expression, attributeName]
-            request.sortDescriptors = sortDescriptors
+            if let sortDescriptor = sortDescriptor  {
+                request.sortDescriptors = [sortDescriptor]
+            }
 
             do {
                 let objects = try context.fetch(request)
