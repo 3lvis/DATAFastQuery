@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "DATAObjectIDs"
-s.version          = "1.0.0"
+s.version          = "0.7.0"
 s.summary          = "The fastest way to get a group of objectIDs and primary keys from Core Data"
 s.homepage         = "https://github.com/SyncDB/DATAObjectIDs"
 s.license          = 'MIT'
