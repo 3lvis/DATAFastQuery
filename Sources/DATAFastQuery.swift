@@ -1,55 +1,148 @@
 import CoreData
 
 public class DATAFastQuery: NSObject {
+
+    /// Querys Core Data in a blazing fast way to retrieve a dictionary of NSManagedObjectIDs as values and a Core Data attribute value as key.
+    ///
+    /// - parameter entityName:    The name of the entity to be queried.
+    /// - parameter attributeName: The Core Data attribute to be used as a key.
+    /// - parameter context:       The managed object context.
+    ///
+    /// - returns: A dictionary where the value is the attribute that you required and the NSManagedObjectID.
     public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext) -> [AnyHashable: NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: nil, sortDescriptor: nil)
+        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: nil, sortDescriptors: nil)
     }
 
+    /// Querys Core Data in a blazing fast way to retrieve a dictionary of NSManagedObjectIDs as values and a Core Data attribute value as key.
+    ///
+    /// - parameter entityName:    The name of the entity to be queried.
+    /// - parameter attributeName: The Core Data attribute to be used as a key.
+    /// - parameter context:       The managed object context.
+    /// - parameter predicate:     The predicate used to filter the result.
+    ///
+    /// - returns: A dictionary where the value is the attribute that you required and the NSManagedObjectID.
     public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?) -> [AnyHashable: NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: predicate, sortDescriptor: nil)
+        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: predicate, sortDescriptors: nil)
     }
 
-    public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, sortDescriptor: NSSortDescriptor) -> [AnyHashable: NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: nil, sortDescriptor: nil)
+    /// Querys Core Data in a blazing fast way to retrieve a dictionary of NSManagedObjectIDs as values and a Core Data attribute value as key.
+    ///
+    /// - parameter entityName:      The name of the entity to be queried.
+    /// - parameter attributeName:   The Core Data attribute to be used as a key.
+    /// - parameter context:         The managed object context.
+    /// - parameter sortDescriptors: The sort descriptors used to filter the result.
+    ///
+    /// - returns: A dictionary where the value is the attribute that you required and the NSManagedObjectID.
+    public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, sortDescriptors: [NSSortDescriptor]) -> [AnyHashable: NSManagedObjectID] {
+        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: nil, sortDescriptors: nil)
     }
 
-    public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptor: NSSortDescriptor) -> [AnyHashable: NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: predicate, sortDescriptor: sortDescriptor)
+
+    /// Querys Core Data in a blazing fast way to retrieve a dictionary of NSManagedObjectIDs as values and a Core Data attribute value as key.
+    ///
+    /// - parameter entityName:      The name of the entity to be queried.
+    /// - parameter attributeName:   The Core Data attribute to be used as a key.
+    /// - parameter context:         The managed object context.
+    /// - parameter predicate:       The predicate used to filter the result.
+    /// - parameter sortDescriptors: The sort descriptors used to filter the result.
+    ///
+    /// - returns: A dictionary where the value is the attribute that you required and the NSManagedObjectID.
+    public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> [AnyHashable: NSManagedObjectID] {
+        return self.generateManagedObjectIDs(in: entityName, usingAsKey: attributeName, context: context, predicate: predicate, sortDescriptors: sortDescriptors)
     }
 
+
+    /// Querys Core Data in a blazing fast way to retrieve an array of NSManagedObjectIDs.
+    ///
+    /// - parameter entityName: The name of the entity to be queried.
+    /// - parameter context:    The managed object context.
+    ///
+    /// - returns: An array of NSManagedObjectID.
     public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext) -> [NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: nil, sortDescriptor: nil)
+        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: nil, sortDescriptors: nil)
     }
 
+    /// Querys Core Data in a blazing fast way to retrieve an array of NSManagedObjectIDs.
+    ///
+    /// - parameter entityName: The name of the entity to be queried.
+    /// - parameter context:    The managed object context.
+    /// - parameter predicate:  The predicate used to filter the result.
+    ///
+    /// - returns: An array of NSManagedObjectID.
     public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate) -> [NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: predicate, sortDescriptor: nil)
+        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: predicate, sortDescriptors: nil)
     }
 
-    public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, sortDescriptor: NSSortDescriptor) -> [NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: nil, sortDescriptor: sortDescriptor)
+    /// Querys Core Data in a blazing fast way to retrieve an array of NSManagedObjectIDs.
+    ///
+    /// - parameter entityName:      The name of the entity to be queried.
+    /// - parameter context:         The managed object context.
+    /// - parameter sortDescriptors: The sort descriptors used to filter the result.
+    ///
+    /// - returns: An array of NSManagedObjectID.
+    public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, sortDescriptors: [NSSortDescriptor]) -> [NSManagedObjectID] {
+        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: nil, sortDescriptors: sortDescriptors)
     }
 
-    public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptor: NSSortDescriptor) -> [NSManagedObjectID] {
-        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: predicate, sortDescriptor: sortDescriptor)
+    /// Querys Core Data in a blazing fast way to retrieve an array of NSManagedObjectIDs.
+    ///
+    /// - parameter entityName:      The name of the entity to be queried.
+    /// - parameter context:         The managed object context.
+    /// - parameter predicate:  The predicate used to filter the result.
+    /// - parameter sortDescriptors: The sort descriptors used to filter the result.
+    ///
+    /// - returns: An array of NSManagedObjectID.
+    public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> [NSManagedObjectID] {
+        return self.generateManagedObjectIDs(in: entityName, context: context, predicate: predicate, sortDescriptors: sortDescriptors)
     }
 
+    /// Querys Core Data in a blazing fast way to retrieve an array of Core Data attributes.
+    ///
+    /// - parameter entityName:      The name of the entity to be queried.
+    /// - parameter context:         The managed object context.
+    /// - parameter predicate:  The predicate used to filter the result.
+    /// - parameter sortDescriptors: The sort descriptors used to filter the result.
+    ///
+    /// - returns: An array of Core Data attributes.
     public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext) -> [Any] {
-        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: nil, sortDescriptor: nil)
+        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: nil, sortDescriptors: nil)
     }
 
+    /// Querys Core Data in a blazing fast way to retrieve an array of Core Data attributes.
+    ///
+    /// - parameter entityName:      The name of the entity to be queried.
+    /// - parameter context:         The managed object context.
+    /// - parameter predicate:  The predicate used to filter the result.
+    ///
+    /// - returns: An array of Core Data attributes.
     public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate) -> [Any] {
-        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: predicate, sortDescriptor: nil)
+        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: predicate, sortDescriptors: nil)
     }
 
-    public class func attributes(in entityName: String,named attributeName: String, context: NSManagedObjectContext, sortDescriptor: NSSortDescriptor) -> [Any] {
-        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: nil, sortDescriptor: sortDescriptor)
+    /// Querys Core Data in a blazing fast way to retrieve an array of Core Data attributes.
+    ///
+    /// - parameter entityName:      The name of the entity to be queried.
+    /// - parameter context:         The managed object context.
+    /// - parameter sortDescriptors: The sort descriptors used to filter the result.
+    ///
+    /// - returns: An array of Core Data attributes.
+    public class func attributes(in entityName: String,named attributeName: String, context: NSManagedObjectContext, sortDescriptors: [NSSortDescriptor]) -> [Any] {
+        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: nil, sortDescriptors: sortDescriptors)
     }
 
-    public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptor: NSSortDescriptor) -> [Any] {
-        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: predicate, sortDescriptor: sortDescriptor)
+    /// Querys Core Data in a blazing fast way to retrieve an array of Core Data attributes.
+    ///
+    /// - parameter entityName:      The name of the entity to be queried.
+    /// - parameter context:         The managed object context.
+    /// - parameter predicate:  The predicate used to filter the result.
+    /// - parameter sortDescriptors: The sort descriptors used to filter the result.
+    ///
+    /// - returns: An array of Core Data attributes.
+    public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> [Any] {
+        return self.generateAttributes(in: entityName, named: attributeName, context: context, predicate: predicate, sortDescriptors: sortDescriptors)
     }
 
-    class func generateManagedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptor: NSSortDescriptor?) -> [AnyHashable: NSManagedObjectID] {
+    class func generateManagedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> [AnyHashable: NSManagedObjectID] {
         var result = [AnyHashable: NSManagedObjectID]()
 
         context.performAndWait {
@@ -62,9 +155,7 @@ public class DATAFastQuery: NSObject {
             request.predicate = predicate
             request.resultType = .dictionaryResultType
             request.propertiesToFetch = [expression, attributeName]
-            if let sortDescriptor = sortDescriptor  {
-                request.sortDescriptors = [sortDescriptor]
-            }
+            request.sortDescriptors = sortDescriptors
 
             do {
                 let objects = try context.fetch(request)
@@ -86,7 +177,7 @@ public class DATAFastQuery: NSObject {
         return result
     }
 
-    class func generateManagedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptor: NSSortDescriptor?) -> [NSManagedObjectID] {
+    class func generateManagedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> [NSManagedObjectID] {
         var objectIDs = [NSManagedObjectID]()
 
         context.performAndWait {
@@ -104,7 +195,7 @@ public class DATAFastQuery: NSObject {
         return objectIDs
     }
 
-    class func generateAttributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptor: NSSortDescriptor?) -> [Any] {
+    class func generateAttributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> [Any] {
         var attributes = [Any]()
 
         context.performAndWait {
@@ -117,9 +208,7 @@ public class DATAFastQuery: NSObject {
             request.predicate = predicate
             request.resultType = .dictionaryResultType
             request.propertiesToFetch = [expression, attributeName]
-            if let sortDescriptor = sortDescriptor  {
-                request.sortDescriptors = [sortDescriptor]
-            }
+            request.sortDescriptors = sortDescriptors
 
             do {
                 let objects = try context.fetch(request)

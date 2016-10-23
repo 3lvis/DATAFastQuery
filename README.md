@@ -15,9 +15,9 @@ public class func managedObjectIDs(in entityName: String, usingAsKey attributeNa
 
 public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?) -> [AnyHashable : NSManagedObjectID]
 
-public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, sortDescriptor: NSSortDescriptor) -> [AnyHashable : NSManagedObjectID]
+public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, sortDescriptors: NSsortDescriptors) -> [AnyHashable : NSManagedObjectID]
 
-public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptor: NSSortDescriptor) -> [AnyHashable : NSManagedObjectID]
+public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: NSsortDescriptors) -> [AnyHashable : NSManagedObjectID]
 ```
 
 Array of NSManagedObjectIDs.
@@ -27,9 +27,9 @@ public class func managedObjectIDs(in entityName: String, context: NSManagedObje
 
 public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate) -> [NSManagedObjectID]
 
-public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, sortDescriptor: NSSortDescriptor) -> [NSManagedObjectID]
+public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, sortDescriptors: NSsortDescriptors) -> [NSManagedObjectID]
 
-public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptor: NSSortDescriptor) -> [NSManagedObjectID]
+public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: NSsortDescriptors) -> [NSManagedObjectID]
 ```
 
 Array of any attributes.
@@ -39,9 +39,9 @@ public class func attributes(in entityName: String, named attributeName: String,
 
 public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate) -> [Any]
 
-public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, sortDescriptor: NSSortDescriptor) -> [Any]
+public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, sortDescriptors: NSsortDescriptors) -> [Any]
 
-public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptor: NSSortDescriptor) -> [Any]
+public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: NSsortDescriptors) -> [Any]
 ```
 
 ## Installation
