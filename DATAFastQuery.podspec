@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "DATAFastQuery"
-s.version          = "0.7.0"
+s.version          = "0.8.0"
 s.summary          = "The fastest way to get a group of objectIDs and primary keys from Core Data"
 s.homepage         = "https://github.com/SyncDB/DATAFastQuery"
 s.license          = 'MIT'
