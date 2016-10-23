@@ -2,7 +2,7 @@ import UIKit
 import DATAStack
 import XCTest
 
-class DATAObjectIDsTests: XCTestCase {
+class DATAFastQueryTests: XCTestCase {
     func insertUserWithRemoteID(remoteID: NSNumber?, localID: String?, name: String, context: NSManagedObjectContext) -> User {
         let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as! User
         user.remoteID = remoteID
@@ -13,7 +13,7 @@ class DATAObjectIDsTests: XCTestCase {
     }
 
     func configureUserWithRemoteID(remoteID: NSNumber?, localID: String?, name: String, block: @escaping (_ user: User, _ context: NSManagedObjectContext) -> Void) {
-        let stack = DATAStack(modelName: "Tests", bundle: Bundle(for: DATAObjectIDsTests.self), storeType: .inMemory)
+        let stack = DATAStack(modelName: "Tests", bundle: Bundle(for: DATAFastQueryTests.self), storeType: .inMemory)
         stack.performInNewBackgroundContext { context in
             let user = self.insertUserWithRemoteID(remoteID: remoteID, localID: localID, name: name, context: context)
             try! context.save()
@@ -23,7 +23,7 @@ class DATAObjectIDsTests: XCTestCase {
 
     func testDictionary() {
         self.configureUserWithRemoteID(remoteID: 1, localID: nil, name: "Joshua") { user, context in
-            let dictionary = DATAObjectIDs.objectIDs(inEntityNamed: "User", withAttributesNamed: "remoteID", context: context)
+            let dictionary = DATAFastQuery.managedObjectIDs(in: "User", usingAsKey: "remoteID", context: context)
             XCTAssertNotNil(dictionary)
             XCTAssertTrue(dictionary.count == 1)
             XCTAssertEqual(dictionary[NSNumber(value: 1)], user.objectID)
@@ -37,7 +37,7 @@ class DATAObjectIDsTests: XCTestCase {
 
     func testDictionaryStringLocalKey() {
         self.configureUserWithRemoteID(remoteID: nil, localID: "100", name: "Joshua") { user, context in
-            let dictionary = DATAObjectIDs.objectIDs(inEntityNamed: "User", withAttributesNamed: "localID", context: context)
+            let dictionary = DATAFastQuery.managedObjectIDs(in: "User", usingAsKey: "localID", context: context)
             XCTAssertNotNil(dictionary)
             XCTAssertTrue(dictionary.count == 1)
             XCTAssertEqual(dictionary["100"], user.objectID);
@@ -49,36 +49,36 @@ class DATAObjectIDsTests: XCTestCase {
         }
     }
 
-    func testObjectIDsArray() {
+    func testmanagedObjectIDsArray() {
         self.configureUserWithRemoteID(remoteID: 1, localID: nil, name: "Joshua") { user, context in
-            let objectIDs = DATAObjectIDs.objectIDs(inEntityNamed: "User", context: context)
-            XCTAssertEqual(objectIDs.count, 1);
-            XCTAssertEqual(objectIDs.first, user.objectID)
+            let managedObjectIDs = DATAFastQuery.managedObjectIDs(in: "User", context: context)
+            XCTAssertEqual(managedObjectIDs.count, 1);
+            XCTAssertEqual(managedObjectIDs.first, user.objectID)
         }
     }
 
-    func testObjectIDsArrayWithPredicate() {
-        let stack = DATAStack(modelName: "Tests", bundle: Bundle(for: DATAObjectIDsTests.self), storeType: .inMemory)
+    func testmanagedObjectIDsArrayWithPredicate() {
+        let stack = DATAStack(modelName: "Tests", bundle: Bundle(for: DATAFastQueryTests.self), storeType: .inMemory)
         let _ = self.insertUserWithRemoteID(remoteID: 1, localID: nil, name: "Joshua", context: stack.mainContext)
         let jon = self.insertUserWithRemoteID(remoteID: 2, localID: nil, name: "Jon", context: stack.mainContext)
 
         let predicate = NSPredicate(format: "name == 'Jon'")
-        let objectIDs = DATAObjectIDs.objectIDs(inEntityNamed: "User", context: stack.mainContext, predicate: predicate)
-        XCTAssertEqual(objectIDs.count, 1)
-        XCTAssertEqual(objectIDs.first, jon.objectID)
+        let managedObjectIDs = DATAFastQuery.managedObjectIDs(in: "User", context: stack.mainContext, predicate: predicate)
+        XCTAssertEqual(managedObjectIDs.count, 1)
+        XCTAssertEqual(managedObjectIDs.first, jon.objectID)
     }
 
     func testDictionaryStringLocalKeyUsingSortDescriptor() {
-        let stack = DATAStack(modelName: "Tests", bundle: Bundle(for: DATAObjectIDsTests.self), storeType: .inMemory)
+        let stack = DATAStack(modelName: "Tests", bundle: Bundle(for: DATAFastQueryTests.self), storeType: .inMemory)
         stack.performInNewBackgroundContext { context in
             let _ = self.insertUserWithRemoteID(remoteID: nil, localID: "100", name: "Joshua", context: context)
             let _ = self.insertUserWithRemoteID(remoteID: nil, localID: "200", name: "Jon", context: context)
             try! context.save()
 
-            let attributesA = DATAObjectIDs.attributes(inEntityNamed: "User", attributeName: "localID", context: context, sortDescriptors: [NSSortDescriptor(key: "localID", ascending: true)])
+            let attributesA = DATAFastQuery.attributes(in: "User", named: "localID", context: context, sortDescriptors: [NSSortDescriptor(key: "localID", ascending: true)])
             XCTAssertEqual(attributesA.first as? String, "100")
 
-            let attributesB = DATAObjectIDs.attributes(inEntityNamed: "User", attributeName: "localID", context: context, sortDescriptors: [NSSortDescriptor(key: "localID", ascending: false)])
+            let attributesB = DATAFastQuery.attributes(in: "User", named: "localID", context: context, sortDescriptors: [NSSortDescriptor(key: "localID", ascending: false)])
             XCTAssertEqual(attributesB.first as? String, "200")
         }
     }

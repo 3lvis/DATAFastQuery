@@ -1,1 +1,1 @@
-Check https://github.com/SyncDB/DATAObjectIDs/releases for more information.
+Check https://github.com/SyncDB/DATAFastQuery/releases for more information.

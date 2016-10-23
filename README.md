@@ -1,8 +1,8 @@
-# DATAObjectIDs
+# DATAFastQuery
 
-[![Version](https://img.shields.io/cocoapods/v/DATAObjectIDs.svg?style=flat)](http://cocoadocs.org/docsets/DATAObjectIDs)
-[![License](https://img.shields.io/cocoapods/l/DATAObjectIDs.svg?style=flat)](http://cocoadocs.org/docsets/DATAObjectIDs)
-[![Platform](https://img.shields.io/cocoapods/p/DATAObjectIDs.svg?style=flat)](http://cocoadocs.org/docsets/DATAObjectIDs)
+[![Version](https://img.shields.io/cocoapods/v/DATAFastQuery.svg?style=flat)](http://cocoadocs.org/docsets/DATAFastQuery)
+[![License](https://img.shields.io/cocoapods/l/DATAFastQuery.svg?style=flat)](http://cocoadocs.org/docsets/DATAFastQuery)
+[![Platform](https://img.shields.io/cocoapods/p/DATAFastQuery.svg?style=flat)](http://cocoadocs.org/docsets/DATAFastQuery)
 
 Simple and lightweight library to query Core Data if a blazing fast way.
 
@@ -44,11 +44,11 @@ public class func attributes(inEntityNamed entityName: String, attributeName: St
 
 ## Installation
 
-**DATAObjectIDs** is available through [CocoaPods](http://cocoapods.org). To install
+**DATAFastQuery** is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'DATAObjectIDs'
+pod 'DATAFastQuery'
 ```
 
 ## Author
@@ -57,4 +57,4 @@ SyncDB, syncdb.contact@gmail.com
 
 ## License
 
-**DATAObjectIDs** is available under the MIT license. See the LICENSE file for more info.
+**DATAFastQuery** is available under the MIT license. See the LICENSE file for more info.
