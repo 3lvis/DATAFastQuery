@@ -11,37 +11,19 @@ Simple and lightweight library to query Core Data if a blazing fast way.
 Dictionary of any attribute as key and NSManagedObjectID as values.
 
 ```swift
-public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext) -> [AnyHashable : NSManagedObjectID]
-
-public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate?) -> [AnyHashable : NSManagedObjectID]
-
-public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, sortDescriptors: NSsortDescriptors) -> [AnyHashable : NSManagedObjectID]
-
-public class func managedObjectIDs(in entityName: String, usingAsKey attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: NSsortDescriptors) -> [AnyHashable : NSManagedObjectID]
+let dictionary = DATAFastQuery.managedObjectIDs(in: "User", usingAsKey: "remoteID", context: context)
 ```
 
 Array of NSManagedObjectIDs.
 
 ```swift
-public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext) -> [NSManagedObjectID]
-
-public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate) -> [NSManagedObjectID]
-
-public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, sortDescriptors: NSsortDescriptors) -> [NSManagedObjectID]
-
-public class func managedObjectIDs(in entityName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: NSsortDescriptors) -> [NSManagedObjectID]
+let managedObjectIDs = DATAFastQuery.managedObjectIDs(in: "User", context: context)
 ```
 
 Array of any attributes.
 
 ```swift
-public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext) -> [Any]
-
-public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate) -> [Any]
-
-public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, sortDescriptors: NSsortDescriptors) -> [Any]
-
-public class func attributes(in entityName: String, named attributeName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortDescriptors: NSsortDescriptors) -> [Any]
+let attributes = DATAFastQuery.attributes(in: "User", named: "localID", context: context, sortDescriptors: [NSSortDescriptor(key: "localID", ascending: true)])
 ```
 
 ## Installation

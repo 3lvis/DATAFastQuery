@@ -49,7 +49,7 @@ class DATAFastQueryTests: XCTestCase {
         }
     }
 
-    func testmanagedObjectIDsArray() {
+    func testManagedObjectIDsArray() {
         self.configureUserWithRemoteID(remoteID: 1, localID: nil, name: "Joshua") { user, context in
             let managedObjectIDs = DATAFastQuery.managedObjectIDs(in: "User", context: context)
             XCTAssertEqual(managedObjectIDs.count, 1);
@@ -57,7 +57,7 @@ class DATAFastQueryTests: XCTestCase {
         }
     }
 
-    func testmanagedObjectIDsArrayWithPredicate() {
+    func testManagedObjectIDsArrayWithPredicate() {
         let stack = DATAStack(modelName: "Tests", bundle: Bundle(for: DATAFastQueryTests.self), storeType: .inMemory)
         let _ = self.insertUserWithRemoteID(remoteID: 1, localID: nil, name: "Joshua", context: stack.mainContext)
         let jon = self.insertUserWithRemoteID(remoteID: 2, localID: nil, name: "Jon", context: stack.mainContext)
